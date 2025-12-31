@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ruchira | Portfolio</title>
+  <style>
+    :root {
+      --primary: #6366f1;
+      --accent: #10b981;
+      --text: #1e293b;
+      --muted: #64748b;
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --glass: rgba(255,255,255,0.7);
+      --transition: 220ms;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+    html,body { height: 100%; }
+    body { background-color: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing:antialiased; }
+
+    /* Navigation */
+    nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1rem 10%; background: linear-gradient(90deg,var(--glass),rgba(255,255,255,0.9));
+      position: sticky; top: 0; backdrop-filter: blur(6px);
+      border-bottom: 1px solid #e6eef9;
+    }
+    .nav-links { display: flex; list-style: none; gap: 1.4rem; }
+    .nav-links a {
+      text-decoration: none; color: var(--muted); font-weight: 600; padding: 6px 8px; border-radius: 8px;
+      transition: color var(--transition), background-color var(--transition), transform var(--transition);
+    }
+    .nav-links a:hover { color: var(--primary); transform: translateY(-2px); background: rgba(99,102,241,0.06); }
+    .nav-links a.active { color: white; background: linear-gradient(90deg,var(--primary),#7c3aed); box-shadow: 0 6px 18px rgba(99,102,241,0.18); }
+
+    /* Hero */
+    header { padding: 60px 10%; text-align: center; background: transparent; }
+    header img {
+      width: 180px; height: 180px; border-radius: 50%;
+      object-fit: cover; border: 6px solid #eef2ff; margin-bottom: 20px; box-shadow: 0 6px 18px rgba(16,24,40,0.06);
+    }
+    header h1 { font-size: 2.5rem; color: var(--primary); margin-bottom: 8px; }
+    header p { color: var(--muted); font-size: 1.05rem; max-width: 760px; margin: 0 auto; }
+    .hero-actions { margin-top: 18px; display: flex; gap: 12px; justify-content: center; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: 10px;
+      background: linear-gradient(90deg,var(--primary),#7c3aed); color: white; border: none; cursor: pointer; font-weight:700;
+      box-shadow: 0 8px 20px rgba(124,58,237,0.12); transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .btn.secondary { background: transparent; color: var(--primary); border: 1px solid rgba(99,102,241,0.12); box-shadow: none; }
+    .btn:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(99,102,241,0.14); }
+
+    /* Sections & cards */
+    section { padding: 60px 10%; }
+    .section-title { font-size: 1.8rem; margin-bottom: 30px; border-left: 5px solid var(--primary); padding-left: 12px; }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+    .card { background: var(--card); padding: 20px; border-radius: 12px; box-shadow: 0 4px 12px rgba(2,6,23,0.04); transition: transform var(--transition), box-shadow var(--transition); }
+    .card:hover { transform: translateY(-6px); box-shadow: 0 16px 38px rgba(2,6,23,0.08); }
+    .badge { display: inline-block; background: linear-gradient(180deg,#ecfdf5,#d1fae5); color: var(--accent); padding: 6px 12px; border-radius: 999px; font-size: 0.8rem; font-weight: 700; margin-bottom: 10px; transform-origin: center; }
+    .badge.pulse { animation: pulse 2.4s infinite; }
+    @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.06); } 100% { transform: scale(1); } }
+
+    .card h3 { color: var(--primary); margin-bottom: 10px; }
+    .card p { color: var(--muted); margin-bottom: 10px; }
+    .card a { color: var(--primary); text-decoration: none; font-weight: 600; }
+
+    /* Contact */
+    .contact-info { display: flex; flex-direction: column; gap: 10px; }
+    .contact-info a { color: var(--primary); text-decoration: none; font-weight: 600; }
+
+    footer { text-align: center; padding: 20px; color: var(--muted); }
+
+    /* Accessibility & focus */
+    a:focus, button:focus { outline: 3px solid rgba(99,102,241,0.18); outline-offset: 2px; }
+
+    /* Responsive tweaks */
+    @media (max-width: 900px) { nav { padding: 12px 6%; } section { padding: 50px 6%; } }
+    @media (max-width: 600px) {
+      nav, header, section { padding: 40px 5%; }
+      header h1 { font-size: 2rem; }
+      .nav-links { gap: 0.8rem; }
+      .grid { gap: 14px; }
+    }
+
+    /* Print-friendly */
+    @media print { nav, .hero-actions { display: none; } body { background: white; color: black; } }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div style="font-weight: 800; font-size: 1.2rem;">Ruchira</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <header>
+    <img src="pic.jpg" alt="Ruchira Profile Picture" />
+    <h1>Hello, I'm Ruchira Salla</h1>
+    <p></p>
+  </header>
+
+  <!-- About -->
+  <section id="about">
+    <h2 class="section-title">About Me</h2>
+    <p>
+       I am currently pursuing my B.Tech 2nd Year, with a strong focus on developing technical skills, practical knowledge, and a solid foundation for my professional career.
+    </p>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <h2 class="section-title">Technical Skills</h2>
+    <div class="grid">
+      <div class="card"><h3>Languages</h3><p> C,Python,JavaScript,MySQL</p></div>
+      <div class="card"><h3>Core CS</h3><p>Cloud Computing, Operating Systems,DBMS, Computer Networks</p></div>
+      <div class="card"><h3>Data & AI</h3><p>Data Analytics and Visualization, Responsible AI Practices</p></div>
+      <div class="card"><h3>Tools</h3><p>GitHub,PowerBi</p></div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects">
+    <h2 class="section-title">Projects</h2>
+    <div class="grid">
+      <div class="card">
+        <span class="badge">Web App</span>
+        <h3>Mini E-commerce App</h3>
+        <p>Cart, checkout, product catalog, and admin workflow with clean APIs and docs.</p>
+      
+      </div>
+      <div class="card">
+        <span class="badge">AI / ML</span>
+        <h3>Tree Species Detector</h3>
+        <p>AI-powered classifier for identifying local tree species.</p>
+       
+      </div>
+      <div class="card">
+        <span class="badge">Data Analytics</span>
+        <h3>Mental Health Analysis</h3>
+        <p>NLP-based dashboard for analyzing student mental health trends responsibly.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact (included as a section, not separate footer) -->
+  <section id="contact">
+    <h2 class="section-title">Contact Me</h2>
+    <div class="contact-info">
+      <p>Email: <a href="mailto:ruchirasalla@gmail.com">ruchirasalla@gmail.com</a></p>
+      <p>LinkedIn: <a href="https://linkedin.com/in/ruchira-salla-20b612327">linkedin.com/in/ruchira-salla</a></p>
+      <p>GitHub: <a href="https://github.com/Ruchira2007">github.com/Ruchira2007</a></p>
+    </div>
+  </section>
+
+  <!-- Small footer -->
+  <footer>
+    <p>© 2025 Ruchira</p>
+  </footer>
+
+</body>
+</html>
