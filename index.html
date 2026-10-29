@@ -3,7 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ruchira | Portfolio</title>
+
+  <meta name="description"
+        content="Portfolio of Salla Ruchira, a Computer Science and Engineering student specializing in AI and Machine Learning.">
+
+  <title>Salla Ruchira | AI & ML Portfolio</title>
+
   <style>
     :root {
       --primary: #6366f1;
@@ -12,160 +17,820 @@
       --muted: #64748b;
       --bg: #f8fafc;
       --card: #ffffff;
-      --glass: rgba(255,255,255,0.7);
+      --glass: rgba(255, 255, 255, 0.85);
       --transition: 220ms;
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-    html,body { height: 100%; }
-    body { background-color: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing:antialiased; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 85px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      transition: color var(--transition);
+    }
 
     /* Navigation */
+
     nav {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 1rem 10%; background: linear-gradient(90deg,var(--glass),rgba(255,255,255,0.9));
-      position: sticky; top: 0; backdrop-filter: blur(6px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 10%;
+      background: var(--glass);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(12px);
       border-bottom: 1px solid #e6eef9;
     }
-    .nav-links { display: flex; list-style: none; gap: 1.4rem; }
-    .nav-links a {
-      text-decoration: none; color: var(--muted); font-weight: 600; padding: 6px 8px; border-radius: 8px;
-      transition: color var(--transition), background-color var(--transition), transform var(--transition);
+
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--primary);
     }
-    .nav-links a:hover { color: var(--primary); transform: translateY(-2px); background: rgba(99,102,241,0.06); }
-    .nav-links a.active { color: white; background: linear-gradient(90deg,var(--primary),#7c3aed); box-shadow: 0 6px 18px rgba(99,102,241,0.18); }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-weight: 600;
+      padding: 7px 10px;
+      border-radius: 8px;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+      background: rgba(99, 102, 241, 0.08);
+    }
 
     /* Hero */
-    header { padding: 60px 10%; text-align: center; background: transparent; }
-    header img {
-      width: 180px; height: 180px; border-radius: 50%;
-      object-fit: cover; border: 6px solid #eef2ff; margin-bottom: 20px; box-shadow: 0 6px 18px rgba(16,24,40,0.06);
+
+    header {
+      padding: 85px 10%;
+      text-align: center;
+      background: linear-gradient(
+        135deg,
+        #eef2ff,
+        #f8fafc,
+        #ecfdf5
+      );
     }
-    header h1 { font-size: 2.5rem; color: var(--primary); margin-bottom: 8px; }
-    header p { color: var(--muted); font-size: 1.05rem; max-width: 760px; margin: 0 auto; }
-    .hero-actions { margin-top: 18px; display: flex; gap: 12px; justify-content: center; }
+
+    .profile-img {
+      width: 175px;
+      height: 175px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 6px solid white;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 25px rgba(99, 102, 241, 0.15);
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .highlight {
+      color: var(--accent);
+    }
+
+    header .subtitle {
+      color: var(--muted);
+      font-size: 1.15rem;
+      margin-bottom: 12px;
+    }
+
+    header .intro {
+      max-width: 750px;
+      margin: 0 auto;
+      color: var(--muted);
+    }
+
+    .hero-actions {
+      margin-top: 25px;
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
     .btn {
-      display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: 10px;
-      background: linear-gradient(90deg,var(--primary),#7c3aed); color: white; border: none; cursor: pointer; font-weight:700;
-      box-shadow: 0 8px 20px rgba(124,58,237,0.12); transition: transform var(--transition), box-shadow var(--transition);
+      display: inline-block;
+      padding: 11px 20px;
+      border-radius: 10px;
+      background: linear-gradient(90deg, var(--primary), #7c3aed);
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+      border: 1px solid transparent;
+      transition: transform var(--transition);
     }
-    .btn.secondary { background: transparent; color: var(--primary); border: 1px solid rgba(99,102,241,0.12); box-shadow: none; }
-    .btn:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(99,102,241,0.14); }
 
-    /* Sections & cards */
-    section { padding: 60px 10%; }
-    .section-title { font-size: 1.8rem; margin-bottom: 30px; border-left: 5px solid var(--primary); padding-left: 12px; }
+    .btn.secondary {
+      background: transparent;
+      color: var(--primary);
+      border-color: var(--primary);
+    }
 
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
-    .card { background: var(--card); padding: 20px; border-radius: 12px; box-shadow: 0 4px 12px rgba(2,6,23,0.04); transition: transform var(--transition), box-shadow var(--transition); }
-    .card:hover { transform: translateY(-6px); box-shadow: 0 16px 38px rgba(2,6,23,0.08); }
-    .badge { display: inline-block; background: linear-gradient(180deg,#ecfdf5,#d1fae5); color: var(--accent); padding: 6px 12px; border-radius: 999px; font-size: 0.8rem; font-weight: 700; margin-bottom: 10px; transform-origin: center; }
-    .badge.pulse { animation: pulse 2.4s infinite; }
-    @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.06); } 100% { transform: scale(1); } }
+    .btn:hover {
+      transform: translateY(-3px);
+    }
 
-    .card h3 { color: var(--primary); margin-bottom: 10px; }
-    .card p { color: var(--muted); margin-bottom: 10px; }
-    .card a { color: var(--primary); text-decoration: none; font-weight: 600; }
+    /* General Sections */
+
+    section {
+      padding: 65px 10%;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 30px;
+      border-left: 5px solid var(--primary);
+      padding-left: 14px;
+    }
+
+    .section-intro {
+      color: var(--muted);
+      margin-top: -18px;
+      margin-bottom: 25px;
+    }
+
+    /* About */
+
+    .about-content {
+      background: var(--card);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(2, 6, 23, 0.04);
+    }
+
+    .about-content p {
+      color: var(--muted);
+      margin-bottom: 15px;
+    }
+
+    .about-content p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Cards */
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(
+        auto-fit,
+        minmax(240px, 1fr)
+      );
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--card);
+      padding: 24px;
+      border-radius: 14px;
+      box-shadow: 0 4px 14px rgba(2, 6, 23, 0.04);
+      border: 1px solid #eef2ff;
+      transition:
+        transform var(--transition),
+        box-shadow var(--transition);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 28px rgba(2, 6, 23, 0.08);
+    }
+
+    .card h3 {
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #ecfdf5;
+      color: #059669;
+      padding: 5px 12px;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .tech-stack {
+      font-size: 0.9rem;
+      color: var(--primary) !important;
+      font-weight: 600;
+    }
+
+    /* Education */
+
+    .education-item {
+      margin-bottom: 18px;
+    }
+
+    .education-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .education-item h3 {
+      color: var(--primary);
+    }
+
+    .education-item p {
+      color: var(--muted);
+    }
+
+    .year {
+      font-weight: 600;
+      color: var(--accent) !important;
+    }
+
+    /* Certifications */
+
+    .cert-list {
+      list-style: none;
+    }
+
+    .cert-list li {
+      padding: 12px 0;
+      border-bottom: 1px solid #e2e8f0;
+      color: var(--muted);
+    }
+
+    .cert-list li:last-child {
+      border-bottom: none;
+    }
+
+    .cert-list li::before {
+      content: "✓ ";
+      color: var(--accent);
+      font-weight: bold;
+    }
 
     /* Contact */
-    .contact-info { display: flex; flex-direction: column; gap: 10px; }
-    .contact-info a { color: var(--primary); text-decoration: none; font-weight: 600; }
 
-    footer { text-align: center; padding: 20px; color: var(--muted); }
-
-    /* Accessibility & focus */
-    a:focus, button:focus { outline: 3px solid rgba(99,102,241,0.18); outline-offset: 2px; }
-
-    /* Responsive tweaks */
-    @media (max-width: 900px) { nav { padding: 12px 6%; } section { padding: 50px 6%; } }
-    @media (max-width: 600px) {
-      nav, header, section { padding: 40px 5%; }
-      header h1 { font-size: 2rem; }
-      .nav-links { gap: 0.8rem; }
-      .grid { gap: 14px; }
+    .contact-box {
+      background: linear-gradient(
+        135deg,
+        #eef2ff,
+        #ecfdf5
+      );
+      padding: 35px;
+      border-radius: 15px;
+      text-align: center;
     }
 
-    /* Print-friendly */
-    @media print { nav, .hero-actions { display: none; } body { background: white; color: black; } }
+    .contact-box p {
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .contact-info a {
+      color: var(--primary);
+      font-weight: 600;
+      text-decoration: none;
+      overflow-wrap: anywhere;
+    }
+
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    /* Footer */
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: white;
+      color: var(--muted);
+      border-top: 1px solid #e2e8f0;
+    }
+
+    /* Accessibility */
+
+    a:focus-visible {
+      outline: 3px solid var(--primary);
+      outline-offset: 4px;
+    }
+
+    /* Responsive Design */
+
+    @media (max-width: 768px) {
+      nav {
+        padding: 15px 5%;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .nav-links {
+        justify-content: center;
+        gap: 5px;
+      }
+
+      .nav-links a {
+        font-size: 0.9rem;
+        padding: 6px;
+      }
+
+      header {
+        padding: 55px 6%;
+      }
+
+      header h1 {
+        font-size: 2.1rem;
+      }
+
+      section {
+        padding: 45px 6%;
+      }
+
+      .section-title {
+        font-size: 1.7rem;
+      }
+
+      .about-content,
+      .contact-box {
+        padding: 22px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition: none !important;
+      }
+    }
+
+    @media print {
+      nav,
+      .hero-actions {
+        display: none;
+      }
+
+      body {
+        background: white;
+        color: black;
+      }
+    }
   </style>
 </head>
+
 <body>
 
   <!-- Navigation -->
+
   <nav>
-    <div style="font-weight: 800; font-size: 1.2rem;">Ruchira</div>
+    <div class="logo">Ruchira.</div>
+
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#certifications">Certifications</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
-  <!-- Hero -->
+
+  <!-- Hero Section -->
+
   <header>
-    <img src="pic.jpg" alt="Ruchira Profile Picture" />
-    <h1>Hello, I'm Ruchira Salla</h1>
-    <p></p>
+    <img
+      src="pic.jpg"
+      alt="Salla Ruchira's profile picture"
+      class="profile-img"
+    />
+
+    <h1>Hi, I'm Ruchira Salla!</h1>
+
+    <p class="subtitle">
+      Computer Science Student | AI & ML Enthusiast | Developer
+    </p>
+
+    <p class="intro">
+      I love exploring Artificial Intelligence, building creative projects,
+      solving coding problems, and turning ideas into practical solutions.
+      I'm always learning something new and excited to grow in the world of
+      technology.
+    </p>
+
+    <div class="hero-actions">
+      <a href="#projects" class="btn">Explore My Projects</a>
+      <a href="#contact" class="btn secondary">Let's Connect</a>
+    </div>
   </header>
 
-  <!-- About -->
-  <section id="about">
-    <h2 class="section-title">About Me</h2>
-    <p>
-       I am currently pursuing my B.Tech 2nd Year, with a strong focus on developing technical skills, practical knowledge, and a solid foundation for my professional career.
-    </p>
-  </section>
 
-  <!-- Skills -->
-  <section id="skills">
-    <h2 class="section-title">Technical Skills</h2>
-    <div class="grid">
-      <div class="card"><h3>Languages</h3><p> C,Python,JavaScript,MySQL</p></div>
-      <div class="card"><h3>Core CS</h3><p>Cloud Computing, Operating Systems,DBMS, Computer Networks</p></div>
-      <div class="card"><h3>Data & AI</h3><p>Data Analytics and Visualization, Responsible AI Practices</p></div>
-      <div class="card"><h3>Tools</h3><p>GitHub,PowerBi</p></div>
+  <!-- About Me -->
+
+  <section id="about">
+    <h2 class="section-title">About Me 👋</h2>
+
+    <div class="about-content">
+      <p>
+        Hey there! I'm Salla Ruchira, a Computer Science and Engineering
+        student specializing in Artificial Intelligence and Machine Learning
+        at SR University, Warangal.
+      </p>
+
+      <p>
+        I'm passionate about programming, problem-solving, and developing
+        applications that combine AI with practical solutions. I enjoy
+        exploring Machine Learning, Natural Language Processing, Generative
+        AI, Large Language Models, and AI Agents.
+      </p>
+
+      <p>
+        Through my projects, I'm continuously improving my technical skills
+        and learning how to transform ideas into working applications.
+        I also practice Data Structures and Algorithms to strengthen my
+        logical thinking and coding abilities.
+      </p>
+
+      <p>
+        My goal is to gain real-world experience, contribute to meaningful
+        projects, collaborate with other developers, and continue growing
+        as a technology professional.
+      </p>
+
+      <p>
+        <strong>My motto:</strong>
+        Keep learning, keep building, and never stop growing! 🚀
+      </p>
     </div>
   </section>
+
+
+  <!-- Technical Skills -->
+
+  <section id="skills">
+    <h2 class="section-title">Technical Skills 💻</h2>
+
+    <p class="section-intro">
+      Technologies and concepts I'm learning and working with.
+    </p>
+
+    <div class="grid">
+
+      <div class="card">
+        <h3>Programming Languages</h3>
+        <p>C, Python, JavaScript, SQL</p>
+      </div>
+
+      <div class="card">
+        <h3>Web Development</h3>
+        <p>HTML, CSS, Node.js, Express.js, React.js</p>
+      </div>
+
+      <div class="card">
+        <h3>AI & Machine Learning</h3>
+        <p>
+          Machine Learning, Natural Language Processing (NLP),
+          Large Language Models (LLMs), Generative AI
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Generative AI Concepts</h3>
+        <p>
+          Retrieval-Augmented Generation (RAG),
+          Prompt Engineering, AI Agents
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Databases</h3>
+        <p>MySQL, NoSQL, MongoDB</p>
+      </div>
+
+      <div class="card">
+        <h3>Core Computer Science</h3>
+        <p>
+          Data Structures & Algorithms, DBMS, Operating Systems,
+          Computer Networks, Cloud Computing
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Data Analytics</h3>
+        <p>Data Analytics, Data Visualization, Power BI</p>
+      </div>
+
+      <div class="card">
+        <h3>Tools & Platforms</h3>
+        <p>Git, GitHub, VS Code, Jupyter Notebook, AWS</p>
+      </div>
+
+    </div>
+  </section>
+
 
   <!-- Projects -->
+
   <section id="projects">
-    <h2 class="section-title">Projects</h2>
+    <h2 class="section-title">My Projects 🚀</h2>
+
+    <p class="section-intro">
+      A few projects through which I'm applying my technical knowledge.
+    </p>
+
     <div class="grid">
+
       <div class="card">
-        <span class="badge">Web App</span>
-        <h3>Mini E-commerce App</h3>
-        <p>Cart, checkout, product catalog, and admin workflow with clean APIs and docs.</p>
-      
+        <span class="badge">AI / Machine Learning</span>
+
+        <h3>Credit Card Fraud Detection System</h3>
+
+        <p>
+          Developed a machine learning model to distinguish fraudulent
+          credit card transactions from legitimate transactions.
+          The project includes data preprocessing, feature engineering,
+          and classification model evaluation.
+        </p>
+
+        <p class="tech-stack">
+          Python · Pandas · NumPy · Scikit-learn
+        </p>
       </div>
+
+
       <div class="card">
-        <span class="badge">AI / ML</span>
-        <h3>Tree Species Detector</h3>
-        <p>AI-powered classifier for identifying local tree species.</p>
-       
+        <span class="badge">Web Development</span>
+
+        <h3>Mini E-Commerce Website</h3>
+
+        <p>
+          Designed a shopping website featuring product displays
+          and shopping cart functionality, with an interactive
+          interface for users to explore products.
+        </p>
+
+        <p class="tech-stack">
+          HTML · CSS · JavaScript
+        </p>
       </div>
+
+
       <div class="card">
-        <span class="badge">Data Analytics</span>
-        <h3>Mental Health Analysis</h3>
-        <p>NLP-based dashboard for analyzing student mental health trends responsibly.</p>
+        <span class="badge">AI / Image Classification</span>
+
+        <h3>Tree Species Detection</h3>
+
+        <p>
+          Built a model to identify tree species from image datasets
+          using image classification techniques and Python libraries.
+          Developed a web interface to make the project easier to use.
+        </p>
+
+        <p class="tech-stack">
+          Python · Machine Learning · HTML · CSS · JavaScript
+        </p>
       </div>
+
     </div>
   </section>
 
-  <!-- Contact (included as a section, not separate footer) -->
+
+  <!-- Education -->
+
+  <section id="education">
+    <h2 class="section-title">Education 🎓</h2>
+
+    <div class="grid">
+
+      <div class="card education-item">
+        <span class="badge">2024 – 2028</span>
+
+        <h3>B.Tech – Computer Science Engineering</h3>
+
+        <p>SR University, Warangal</p>
+
+        <p class="year">CGPA: 8.5 / 10.0</p>
+      </div>
+
+
+      <div class="card education-item">
+        <span class="badge">2022 – 2024</span>
+
+        <h3>Intermediate – MPC</h3>
+
+        <p>Wisdom Junior College</p>
+
+        <p class="year">Percentage: 85%</p>
+      </div>
+
+
+      <div class="card education-item">
+        <span class="badge">2022</span>
+
+        <h3>SSC</h3>
+
+        <p>Unique High School</p>
+
+        <p class="year">Percentage: 80%</p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- Certifications -->
+
+  <section id="certifications">
+    <h2 class="section-title">Certifications 📜</h2>
+
+    <div class="card">
+      <ul class="cert-list">
+
+        <li>
+          Build Generative AI Apps and Solutions with No-Code Tools
+          – Infosys Springboard
+        </li>
+
+        <li>
+          Introduction to AI & ML – Infosys Springboard
+        </li>
+
+        <li>
+          CCNA: Introduction to Networks – Cisco Networking Academy
+        </li>
+
+        <li>
+          AWS Academy Graduate – Cloud Developing
+        </li>
+
+        <li>
+          AWS Academy Graduate – Cloud Foundations
+        </li>
+
+        <li>
+          Introduction to Git and GitHub – Google, offered through Coursera
+        </li>
+
+      </ul>
+    </div>
+  </section>
+
+
+  <!-- Achievements -->
+
+  <section id="achievements">
+    <h2 class="section-title">Achievements & Learning 🌟</h2>
+
+    <div class="grid">
+
+      <div class="card">
+        <h3>Hackathons & Events</h3>
+
+        <p>
+          Participated in hackathons, technical events, and workshops
+          related to AI and software development.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Problem Solving</h3>
+
+        <p>
+          Practicing coding problems using C and Python to strengthen
+          algorithmic thinking, logical reasoning, and programming skills.
+        </p>
+      </div>
+
+      <div class="card">
+        <h3>Continuous Learning</h3>
+
+        <p>
+          Building knowledge in artificial intelligence, cloud computing,
+          networking, and software development through projects and
+          professional certifications.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- Contact -->
+
   <section id="contact">
-    <h2 class="section-title">Contact Me</h2>
-    <div class="contact-info">
-      <p>Email: <a href="mailto:ruchirasalla@gmail.com">ruchirasalla@gmail.com</a></p>
-      <p>LinkedIn: <a href="https://linkedin.com/in/ruchira-salla-20b612327">linkedin.com/in/ruchira-salla</a></p>
-      <p>GitHub: <a href="https://github.com/Ruchira2007">github.com/Ruchira2007</a></p>
+    <h2 class="section-title">Let's Connect! 💌</h2>
+
+    <div class="contact-box">
+      <p>
+        Have an interesting project, internship opportunity, or idea?
+        I'd love to connect, learn, and collaborate!
+      </p>
+
+      <div class="contact-info">
+
+        <p>
+          Email:
+          <a href="mailto:ruchirasalla@gmail.com">
+            ruchirasalla@gmail.com
+          </a>
+        </p>
+
+        <!-- Replace the placeholder URLs with your actual profile links. -->
+
+        <p>
+          LinkedIn:
+          <a
+            href="https://www.linkedin.com/in/ruchira-salla-20b612327/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Connect with me on LinkedIn
+          </a>
+        </p>
+
+        <p>
+          GitHub:
+          <a
+            href="https://github.com/Ruchira2007"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Explore my GitHub
+          </a>
+        </p>
+
+      </div>
+
+      <div class="hero-actions">
+        <a href="mailto:ruchirasalla@gmail.com" class="btn">
+          Send Me an Email
+        </a>
+      </div>
     </div>
   </section>
 
-  <!-- Small footer -->
+
+  <!-- Footer -->
+
   <footer>
-    <p>© 2025 Ruchira</p>
+    <p>
+      Made with 💜 by Salla Ruchira
+    </p>
+
+    <p>
+      © <span id="year"></span> Ruchira. Keep learning and growing!
+    </p>
   </footer>
+
+
+  <script>
+    // Automatically update the copyright year.
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
 
 </body>
 </html>
+```
